@@ -53,13 +53,11 @@
 
   In questo capitolo raccogliere le informazioni relative al progetto, ad esempio:
 
-  -   Allievo/i e docente/i coinvolti nel progetto e rispettivi ruoli,
+  -   Allievo coinvolto nel progetto: Samuel Banfi.
 
-  -   scuola ,sezione, materia/e,
+  -   Classe I3BB, Scuola Arti e Mestieri Trevano, sezione Informatica.
 
-  -   date di inizio e termine di consegna,
-
-  -   …
+  -   Data d'inizio: 09.09.2021
 
 ### Abstract
 
@@ -102,9 +100,7 @@
 
 ### Scopo
 
-  Lo scopo del progetto (scopi didattici/scopi operativi). Dovrebbe
-  descrivere il mandato, ma non vanno ricopiate le informazioni del
-  quaderno dei compiti (che va invece allegato).
+  Lo scopo del progetto è quello di creare una piattaforma web sulla quale si possono vendere api.
 
 
 ## Analisi
