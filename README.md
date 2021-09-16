@@ -11,4 +11,4 @@ Piattaforma web nella quale gli apicoltori possono mettere in vendita famiglie d
 
 - [Documentazione](Documenti/)
 
-- [Diari di lavoro](Diari/)
+- [Diari](Diari/)
