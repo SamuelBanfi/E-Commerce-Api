@@ -142,19 +142,20 @@ c'è un utente sulla piattaforma che è disposto a vendere il prodotto e un altr
   rappresentano delle attività bensì delle caratteristiche che il prodotto
   dovrà possedere.
 
-
-
-
-  |**ID**	|**Nome**			|**Priorità**|**Vers**|**Note**  |
+  |**ID**	|**Nome**			|**Priorità**|**Versione**|**Note**  |
   |----|------------|--------|----|------|
-  |Req-12|Dovrà esserci una maschera di login|1|1.0|...|
-  |Req-13|Si dovranno poter immettere nuovi allievi|1|1.0|...|
-  |Req-14|Dovrà essere possibile la ricerca di allievi|1|1.0|...|
+  | Req-001 | Pagina principale | 1 | 1.0 | Dovrà esserci una pagina principale dove saranno visibili tutte le inserzioni |
+  | Req-002 | Pagina iscrizione | 1 | 1.0 | Dovra esserci una pagina di iscrizione con nome, cognome, nome utente, email, password e conferma password |
+  | Req-003 | Pagina di login | 1 | 1.0 | Dovrà esserci una pagina di login con nome utente e password |
+  | Req-004 | Pagina di profilo | 1 | 1.0 | Dovrà esserci una pagina di profilo dove potranno essere visualizzate le informazione personali come nome, cognome, nome utente. si dovranno anche visualizzare le inserzioni create dall'utente con la possibilità di rimuoverle. Bisogna avere la possibilità di cambiare l'indirizzo e-mail, e l'indirizzo |
+  | Req-006 | Pagina di creazione delle inserzioni | 1 | 1.0 | Dovrà esserci una pagina dove si potranno creare delle inserzioni. Bisogna chiedere il nome per l'inserzione, una descrizione di quello che si vuole o si offre, che prodotto si cerca o vende (Famiglia di api, Nucleo di api o Api regine)
+  | Req-007 | Pagina di match | 1 | 1.0 | Dovrà esserci una pagina dove verranno mostrati i match tra le rechieste o le offerte fatte dall'utente con le altre persone che cercano o vendono quello specifico prodotto |
+  | Req-008 | Match nello stesso distretto | 1 | 1.0 | I match tra offerte e richieste dovranno essere fatte esclusivamente all'interno dello stesso distretto |
+  | Req-009 | Controlli sulla password | 1 | 1.0 | Dovranno esserci i seguenti controlli per la creazione della password: lunga >= 8 caratteri <= 30 caratteri, dovrà avere almeno 1 carattere maiuscolo, 1 minuscolo e 1 carattere speciale |
+  | Req-010 | Filtri pagina principale | 1 | 1.0 | Devono essere presenti dei filtri in base alla tipologia (richiesta, offerta), al prodotto (Famiglia di api, Nucleo di api o Api regine) e al distretto (Bellinzona, Blenio, Leventina, Locarno, Lugano, Mendrisio, Riviera, Vallemaggia) |
+  | Req-011 | Chat tra acquirente e venditore | 1 | 1.0 | Se possibile dovrà essere presente una pagina, nella quale in base ai match si potrà parlare con l'acquirente o con il venditore del prodotto |
+  | Req-012 | Conferma di vendita | 1 | 1.0 | Durante il match acquirenti e venditori possono confermare lo scambio tramite due bottoni di conferma. Se entrambi confermano lo scambio l'inserzione viene rimossa automaticamente |
   
-  
-
-
-
 **Spiegazione elementi tabella dei requisiti:**
 
 **ID**: identificativo univoco del requisito
@@ -162,10 +163,7 @@ c'è un utente sulla piattaforma che è disposto a vendere il prodotto e un altr
 **Nome**: breve descrizione del requisito
 
 **Priorità**: indica l’importanza di un requisito nell’insieme del
-progetto, definita assieme al committente. Ad esempio poter disporre di
-report con colonne di colori diversi ha priorità minore rispetto al
-fatto di avere un database con gli elementi al suo interno. Solitamente
-si definiscono al massimo di 2-3 livelli di priorità.
+progetto, definita assieme al committente.
 
 **Versione**: indica la versione del requisito. Ogni modifica del
 requisito avrà una versione aggiornata.
@@ -175,9 +173,6 @@ vecchie dovranno essere inserite nei diari.
 
 **Note**: eventuali osservazioni importanti o riferimenti ad altri
 requisiti.
-
-**Sotto requisiti**: elementi che compongono il requisito.
-
 
 ### Use case
 
@@ -218,6 +213,36 @@ Questo capitolo descrive esaustivamente come deve essere realizzato il
 prodotto fin nei suoi dettagli. Una buona progettazione permette
 all’esecutore di evitare fraintendimenti e imprecisioni
 nell’implementazione del prodotto.
+
+![Registrazione](Progettazione/registrazione.png)
+
+### Pagina di registrazione
+
+La pagina di registrazione permette all'utente di creare un nuovo profilo.<br>
+Tutti i campi compilabili sono obbligatori e se non vengono riempiti compare il mesaggio "Compilare tutti i campi per continuare".<br>
+La password è complessa e se la password non soddisfa i requisiti minimi compare il messaggio "La password non soddisfa i requisiti minimi di sicurezza".<br>
+Se la password inserita non corrisponde alla password di verifica compare il messaggio "La due password non corrispondono".
+
+![Login](Progettazione/login.png)
+
+### Pagina di login
+
+La pagina di login permette all'utente di collegarsi con il suo profilo utente.<br> 
+Se l'utente inserisce il nome utente oppure la password non sbagliate viene mostrato il messaggio "Nome utente o password non corretti". 
+
+![Profilo](Progettazione/profilo.png)
+
+### Pagina di profilo
+
+Nella pagina di profilo l'utente può visualizzare le sue informazioni personali,<br>
+può cambiare il suo indirizzo E-Mail e può vedere le sue inserzioni per eliminarle. 
+
+![Chat](Progettazione/chat.png)
+
+### Pagina della chat
+
+La pagina della chat permette ad acquirenti e venditori di aver un dialogo circa il prodotto in offerta o il prodotto ricercato.<br>
+Quando l'affare è concluso la chat viene eliminata in automatico.
 
 ### Design dell’architettura del sistema
 
