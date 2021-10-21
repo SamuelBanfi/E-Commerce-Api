@@ -1,50 +1,50 @@
 1. [Introduzione](#introduzione)
 
-  - [Informazioni sul progetto](#informazioni-sul-progetto)
+    - [Informazioni sul progetto](#informazioni-sul-progetto)
 
-  - [Abstract](#abstract)
+    - [Abstract](#abstract)
 
-  - [Scopo](#scopo)
+    - [Scopo](#scopo)
 
-1. [Analisi](#analisi)
+2. [Analisi](#analisi)
 
-  - [Analisi del dominio](#analisi-del-dominio)
+    - [Analisi del dominio](#analisi-del-dominio)
   
-  - [Analisi dei mezzi](#analisi-dei-mezzi)
+    - [Analisi dei mezzi](#analisi-dei-mezzi)
 
-  - [Analisi e specifica dei requisiti](#analisi-e-specifica-dei-requisiti)
+    - [Analisi e specifica dei requisiti](#analisi-e-specifica-dei-requisiti)
 
-  - [Use case](#use-case)
+    - [Use case](#use-case)
 
-  - [Pianificazione](#pianificazione)
+    - [Pianificazione](#pianificazione)
 
-1. [Progettazione](#progettazione)
+3. [Progettazione](#progettazione)
 
-  - [Design dell’architettura del sistema](#design-dell’architettura-del-sistema)
+    - [Design dell’architettura del sistema](#design-dell’architettura-del-sistema)
 
-  - [Design dei dati e database](#design-dei-dati-e-database)
+    - [Design dei dati e database](#design-dei-dati-e-database)
 
-1. [Implementazione](#implementazione)
+4. [Implementazione](#implementazione)
 
-1. [Test](#test)
+5. [Test](#test)
 
-  - [Protocollo di test](#protocollo-di-test)
+    - [Protocollo di test](#protocollo-di-test)
 
-  - [Risultati test](#risultati-test)
+    - [Risultati test](#risultati-test)
 
-  - [Mancanze/limitazioni conosciute](#mancanze/limitazioni-conosciute)
+    - [Mancanze/limitazioni conosciute](#mancanze/limitazioni-conosciute)
 
-1. [Consuntivo](#consuntivo)
+6. [Consuntivo](#consuntivo)
 
-1. [Conclusioni](#conclusioni)
+7. [Conclusioni](#conclusioni)
 
-  - [Sviluppi futuri](#sviluppi-futuri)
+    - [Sviluppi futuri](#sviluppi-futuri)
 
-  - [Considerazioni personali](#considerazioni-personali)
+    - [Considerazioni personali](#considerazioni-personali)
 
-1. [Sitografia](#sitografia)
+8. [Sitografia](#sitografia)
 
-1. [Allegati](#allegati)
+9. [Allegati](#allegati)
 
 
 ## Introduzione
@@ -88,59 +88,42 @@ c'è un utente sulla piattaforma che è disposto a vendere il prodotto e un altr
 
   -   Background/Situazione iniziale
 
+  Attualmente in Svizzera non è ancora stato sviluppata una piattaforma web sulla quale si possa commerciare Api all'interno dello stesso distretto. <br>
+  Questo progetto nasce da una mancanza fondamentale, non esiste ancora un luogo comune dove gli apicoltori possano comunicare e commerciare le loro api.
+  Questo progetto di fatto risolve questa lacuna, infatti è una piattaforma simile a [tutti.ch](https://www.tutti.ch/it) dove al posto degli oggetti comuni si possono commerciare
+  esclusivamente api. È simile a tutti.ch ma questo progetto apporta un upgrade fondamentale alla piattaforma di commercio tra privati perché fino ad ora sulla piattaforma
+  tutti.ch molti venditori e acquirenti non riescono a trovarsi e decidono di abbandonare la ricerca del prodotto o la vendita.<br>
+  Questo progetto lo migliora perché quando una richiesta trova un'offerta valida queste persone vengono informate via email.
+
   -   Quale è e come è organizzato il contesto in cui il prodotto dovrà
       funzionare?
 
   -   Come viene risolto attualmente il problema? Esiste già un prodotto
       simile?
 
+  Attualmente questo progetto rappresenta un prodotto unico mai sviluppato in precendenza.
+
   -   Chi sono gli utenti? Che bisogni hanno? Come e dove lavorano?
+
+  Sul web questo progetto rappresenta l'unica piattaforma web per mettere in contatto gli apicoltori. Gli apicoltori secondo me hanno necessità di comunicare<br>
+  per poter commerciare le loro api, senza questa piattaforma è difficile riuscire a vendere le api, soprattutto su tutti.ch dove rappresentano una minoranza.
 
   -   Che competenze/conoscenze/cultura posseggono gli utenti in relazione
       con il problema?
+
+  Questa è una piattaforma destinata esclusivamente a degli apicoltori o a dei futuri apicolori, infatti la piattaforma segue le norme legali<br>
+  per quanto riguarda la vendità all'interno dello stesso distretto. Altrimenti servirebbero dei permessi speciale.<br>
+  Di fatto questa piattaforma evita problemi legali sia a persone nuove del mestiere che a persone esperte ma magari non a conoscenza di alcune leggi sulla tutela delle api.
 
   -   Esistono convenzioni/standard applicati nel dominio?
 
   -   Che conoscenze teoriche bisogna avere/acquisire per poter operare
       efficacemente nel dominio?
 
-  -   …
+  La piattaforma fornisce ai novizi una sezione con dei link per impare tutto quello che riguarda le api e il loro commercio, questo per permettere alle nuove persone<br>
+  di giostrarsi in modo efficace  all'interno di questo mercato per molti sconosciuto.
 
 ### Analisi e specifica dei requisiti
-
-  Il progettista, dopo aver ricevuto il mandato, in collaborazione con il
-  committente redige una lista di requisiti. Durante questi incontri,
-  tramite interviste (da inserire nei diari), il progettista deve cercare
-  di rispondere alle seguenti domande:
-
-  -   Quali sono i bisogni del committente?
-
-  -   Quali funzioni deve svolgere il prodotto?
-
-  -   Come devono essere implementate?
-
-  -   L’utente, come vorrebbe/dovrebbe interagire con il prodotto?
-
-  -   Come verrà utilizzato il prodotto?
-
-  -   Che tipo di interfaccia si immagina?
-
-  -   Che prestazioni minime deve fornire il prodotto?
-
-  -   Che grado di sicurezza deve avere il prodotto?
-
-  -   …
-
-  In base alla lista dei requisiti e all’analisi degli stessi, il
-  progettista redige una *specifica dei requisiti* in cui elenca e
-  descrive in modo dettagliato quali sono le funzionalità che il prodotto
-  fornirà. La specifica dovrebbe essere abbastanza dettagliata da poter
-  essere utilizzata come base per lo sviluppo, ma non troppo; ad esempio
-  non dovrebbe contenere dettagli di implementazione, o definizioni
-  dettagliate dell’interfaccia grafica a meno che questi non siano
-  considerati cruciali. Non si deve scordare che i requisiti non
-  rappresentano delle attività bensì delle caratteristiche che il prodotto
-  dovrà possedere.
 
   |**ID**	|**Nome**			|**Priorità**|**Versione**|**Note**  |
   |----|------------|--------|----|------|
@@ -214,6 +197,19 @@ prodotto fin nei suoi dettagli. Una buona progettazione permette
 all’esecutore di evitare fraintendimenti e imprecisioni
 nell’implementazione del prodotto.
 
+![Index](Progettazione/index.png)
+
+### Pagina principale
+
+La pagina principale permette a chiunque di vedere le inserzioni pubblicate dagli utenti. Un ospite può registrarsi<br>
+per poter creare richieste, offerte guardare il suo profilo e può instaurare un dialogo con gli altri utenti del servizio.<br>
+Gli utenti possono comunicare per email oppure tramite la chat integrata nel sito dove si comunica circa la richiesta e l'offerta.<br>
+Per poter accedere alle pagine di aggiunta delle inserszioni, chat e il match l'utente deve eseguire il [login](#pagina-di-login) premendo l'icona rappresentante una persona.<br>
+Se l'utente non ha ancora un profilo può [iscriversi](#pagina-di-registrazione) premendo il pulsante iscriviti.<br>
+L'utente, nella pagina principale, può decidere di filtrare i risultati utilizzando due criteri:
+  - Tipi di prodotto: Famiglia di api, Nucleo di api e Api regine
+  - Distretti: Locarnese, Bellinzonese, Blenio, Leventina, Riviera, Vallemaggia, Luganese e Mendrisiotto
+
 ![Registrazione](Progettazione/registrazione.png)
 
 ### Pagina di registrazione
@@ -235,7 +231,14 @@ Se l'utente inserisce il nome utente oppure la password non sbagliate viene most
 ### Pagina di profilo
 
 Nella pagina di profilo l'utente può visualizzare le sue informazioni personali,<br>
-può cambiare il suo indirizzo E-Mail e può vedere le sue inserzioni per eliminarle. 
+può cambiare il suo indirizzo E-Mail e può vedere le sue inserzioni per eliminarle.
+
+![Match](Progettazione/match.png)
+
+### Pagina di match
+
+La pagina di match permette ad un utente registrato di vedere le **possibili** combinazioni tra la loro richiesta e le offerte disponibili con il servizio.<br>
+Un utente può decidere se accettare o rifiutare un'offerta / richiesta. Se il match viene confermata all'interno nella sezione [chat](#pagina-della-chat) del sito.
 
 ![Chat](Progettazione/chat.png)
 
@@ -246,17 +249,7 @@ Quando l'affare è concluso la chat viene eliminata in automatico.
 
 ### Design dell’architettura del sistema
 
-Descrive:
-
--   La struttura del programma/sistema lo schema di rete...
-
--   Gli oggetti/moduli/componenti che lo compongono.
-
--   I flussi di informazione in ingresso ed in uscita e le
-    relative elaborazioni. Può utilizzare *diagrammi di flusso dei
-    dati* (DFD).
-
--   Eventuale sitemap
+![Architettura di rete](Progettazione/architettura_rete.png)
 
 ### Design dei dati e database
 
@@ -265,8 +258,7 @@ agli attributi e le relazioni degli oggetti in uso.
 
 ### Schema E-R, schema logico e descrizione.
 
-Se il diagramma E-R viene modificato, sulla doc dovrà apparire l’ultima
-versione, mentre le vecchie saranno sui diari.
+![Struttura del database](Progettazione/struttura_database.png)
 
 ### Design delle interfacce
 
