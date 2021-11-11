@@ -1,9 +1,9 @@
 <?php
-    $server = "192.168.1.118";
+    $server = "localhost";
     $username = "root";
-    $password = "root";
+    $password = "Password&1";
     $db = "vendita_api";
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $db);
+    $conn = new mysqli($server, $username, $password, $db);
 ?>

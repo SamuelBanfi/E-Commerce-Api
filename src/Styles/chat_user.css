@@ -1,0 +1,23 @@
+.user-container {
+    width: 60%;
+    height: 15vh;
+    border: 1px solid black;
+    margin-top: 3vh;
+    display: flex;
+    border-radius: 15px;
+}
+
+.user-image-container {
+    flex: 1;
+    margin-top: 1vh;
+    margin-left: 1vh;
+}
+
+.name-container {
+    flex: 3;
+    margin-top: 1vh;
+}
+
+.name-container p {
+    margin-top: 10px;
+}

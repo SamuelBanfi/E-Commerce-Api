@@ -1,0 +1,43 @@
+header {
+    height: 10vh;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: transparent;
+}
+
+header a {
+    text-decoration: none;
+    color: black;
+}
+
+.logo-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.actions {
+    display: flex;
+    flex: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#login, #chat, #match {
+    width: 5vh;
+    height: 5vh;
+    border-radius: 50%;
+}
+
+#home {
+    width: 4vh;
+    height: 4vh;
+}
+
+#add {
+    width: 2vh;
+    height: 2vh;
+}

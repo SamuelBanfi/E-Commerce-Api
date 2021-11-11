@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Iscrizione | E-Commerce Api</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+            }
+
+            body {
+                background-image: url("./Images/Bees/bees_on_flowers.jpg");
+                height: 100vh;
+            }
+
+            form {
+                width: 40%;
+                height: 80vh;
+                background-color: rgba(255, 255, 255, 0.6);
+                float: right;
+                margin-top: 12.5vh;
+                margin-bottom: 12.5vh;
+                margin-right: 12.5vh;
+                border-radius: 20px;
+                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            }
+
+            input, button {
+                width: 50%;
+                margin-left: 25%;
+                margin-right: 25%;
+                height: 4vh;
+                border-radius: 10px;
+                border: 0;
+                box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+            }
+
+            button {
+                height: 5vh;
+                font-size: 17px;
+                margin-top: 1vh;
+            }
+
+            h1, h2, h3 {
+                text-align: center;
+                margin-top: 2vh;
+            }
+
+            h1 {
+                margin-top: 3vh;
+                font-size: 34px;
+            }
+
+            a {
+                text-decoration: none;
+                display: block;
+                text-align: center;
+            }
+
+            span {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="image-container">
+
+        </div>
+        <div class="form-container">
+            <form action="./Server/Scripts/create_db_user.php" method="POST" id="signup" name="signup" onsubmit="checkPassword(event)">
+                <h1>Iscriviti</h1>
+                <h2>Nome <span>*</span></h2>
+                <input type="text" name="name" id="name" required>
+                <br>
+                <h2>Cognome <span>*</span></h2>
+                <input type="text" name="surname" id="surname" required>
+                <br>
+                <h2>Nome utente <span>*</span></h2>
+                <input type="text" name="username" id="username" required>
+                <br>
+                <h2>E-Mail <span>*</span></h2>
+                <input type="email" name="mail" id="mail" required>
+                <br>
+                <h2>Password <span>*</span></h2>
+                <input type="password" name="password1" id="password1" required>
+                <br>
+                <h2>Ripeti password <span>*</span></h2>
+                <input type="password" name="password2" id="password2" required>
+                <br>
+                <button>Iscriviti</button>
+                <br>
+                <p id="error" style="display: none;"></p>
+                <h3>Sei già un utente?</h3>
+                <a href="signin.html">Accedi</a>
+            </form>
+        </div>
+        <script>
+            var error = document.getElementById("error");
+
+            function checkPassword(event) {
+                var passwd = document.getElementById("password1");
+                var passwd2 = document.getElementById("password2");
+                var form = document.getElementById("signup");
+
+                if (passwd.value == passwd2.value)
+                    checkPasswordSecurity(passwd.value, form);
+                else {
+                    error.style.display="";
+                    error.innerHTML="Le due password non corrispondono";
+                }
+
+            }
+
+            /**
+             * This function check if password exceed the minimum requirements.
+             * Length: >= 8 characters and <= 30 characters
+             * Min. 1 uppercase character
+             * Min. 1 lowercase character
+             * Min. 1 special character
+             * @param password the password as string
+             */
+            function checkPasswordSecurity(password, formName) {
+                if (password.length >= 8 && password.length <= 30) {
+                    var counterLower = 0;
+                    var counterUpper = 0;
+                    var counterSpecial = 0;
+
+                    for (var i = 0; i < password.length; i++) {
+                        if (testCase(password.charAt(i), 1))
+                            counterUpper++;
+                        else if (testCase(password.charAt(i), 2))
+                            counterLower++;
+                        else
+                            counterSpecial++;
+                    }
+
+                    if (counterLower >= 1 && counterUpper >= 1 && counterSpecial >= 1)
+                        formName.submit();
+                    else {
+                        error.style.display = "";
+                        error.innerHTML = "La password non è abbastanza sicura";
+                    }
+                }
+            }
+
+            /**
+             * This method check if first letter is uppercase.
+             * Code example: https://www.codegrepper.com/code-examples/javascript/javascript+how+to+check+if+letter+is+uppercase
+             * @param letter the letter to check
+             * @param typeCase 1: uppercase, 2: lowercase
+             */
+            function testCase(letter, typeCase) {
+                switch (typeCase) {
+                    case 1:
+                        return /[A-Z]/.test(letter);
+                    case 2:
+                        return /[a-z]/.test(letter);
+                }
+            }
+        </script>
+    </body>
+</html>

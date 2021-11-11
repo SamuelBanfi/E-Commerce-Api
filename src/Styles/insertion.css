@@ -1,0 +1,28 @@
+.offers-container {
+    width: 70%;
+    margin-left: 30%;
+}
+
+.offer-container {
+    width: 60%;
+    height: 15vh;
+    border: 1px solid black;
+    margin-top: 3vh;
+    display: flex;
+    border-radius: 15px;
+}
+
+.image-container {
+    flex: 1;
+    margin-top: 1vh;
+    margin-left: 1vh;
+}
+
+.description-container {
+    flex: 3;
+    margin-top: 1vh;
+}
+
+.description-container p {
+    margin-top: 10px;
+}

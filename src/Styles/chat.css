@@ -1,0 +1,78 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../Images/Bees/bee_on_flower.jpg");
+}
+
+.chat {
+    width: 50%;
+    position: fixed;
+    bottom: 4vh;
+    margin-left: 1%;
+}
+
+#message {
+    width: 75%;
+    height: 9vh;
+    border-radius: 15px;
+}
+
+#send {
+    width: 10%;
+    margin-left: 1vh;
+    height: 7vh;
+    border-radius: 15px;
+    position: fixed;
+    bottom: 4vh;
+}
+
+.chat-container {
+    width: 50%;
+    margin-left: 25%;
+    border: 2px solid black;
+    border-radius: 15px;
+    height: 90vh;
+    bottom: 2vh;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.mine {
+    width: 50%;
+    float: right;
+    height: 84vh;
+}
+
+.other {
+    width: 50%;
+    float: left;
+    height: 84vh;
+}
+
+.msg-mine, .msg-other {
+    width: 60%;
+    padding: 10px;
+    margin-left: 50%;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.msg-mine {
+    background: lightgreen;
+    float: right;
+    margin-right: 2vh;
+    margin-top: 2vh;
+}
+
+.msg-other {
+    background: lightskyblue;
+    float: left;
+}
+
+.date {
+    text-align: right;
+}
