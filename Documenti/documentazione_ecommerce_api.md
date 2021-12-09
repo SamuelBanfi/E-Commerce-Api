@@ -125,18 +125,48 @@ c'è un utente sulla piattaforma che è disposto a vendere il prodotto e un altr
 
 ### Analisi e specifica dei requisiti
 
-  |**ID**	|**Nome**			|**Priorità**|**Versione**|**Note**  |
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
   |----|------------|--------|----|------|
   | Req-001 | Pagina principale | 1 | 1.0 | Dovrà esserci una pagina principale dove saranno visibili tutte le inserzioni |
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
   | Req-002 | Pagina iscrizione | 1 | 1.0 | Dovra esserci una pagina di iscrizione con nome, cognome, nome utente, email, password e conferma password |
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
   | Req-003 | Pagina di login | 1 | 1.0 | Dovrà esserci una pagina di login con nome utente e password |
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
   | Req-004 | Pagina di profilo | 1 | 1.0 | Dovrà esserci una pagina di profilo dove potranno essere visualizzate le informazione personali come nome, cognome, nome utente. si dovranno anche visualizzare le inserzioni create dall'utente con la possibilità di rimuoverle. Bisogna avere la possibilità di cambiare l'indirizzo e-mail, e l'indirizzo |
-  | Req-006 | Pagina di creazione delle inserzioni | 1 | 1.0 | Dovrà esserci una pagina dove si potranno creare delle inserzioni. Bisogna chiedere il nome per l'inserzione, una descrizione di quello che si vuole o si offre, che prodotto si cerca o vende (Famiglia di api, Nucleo di api o Api regine)
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
+  | Req-006 | Pagina di creazione delle inserzioni | 1 | 1.0 | Dovrà esserci una pagina dove si potranno creare delle inserzioni. Bisogna chiedere il nome per l'inserzione, una descrizione di quello che si vuole o si offre, che prodotto si cerca o vende (Famiglia di api, Nucleo di api o Api regine) |
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
   | Req-007 | Pagina di match | 1 | 1.0 | Dovrà esserci una pagina dove verranno mostrati i match tra le rechieste o le offerte fatte dall'utente con le altre persone che cercano o vendono quello specifico prodotto |
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
   | Req-008 | Match nello stesso distretto | 1 | 1.0 | I match tra offerte e richieste dovranno essere fatte esclusivamente all'interno dello stesso distretto |
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
   | Req-009 | Controlli sulla password | 1 | 1.0 | Dovranno esserci i seguenti controlli per la creazione della password: lunga >= 8 caratteri <= 30 caratteri, dovrà avere almeno 1 carattere maiuscolo, 1 minuscolo e 1 carattere speciale |
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
   | Req-010 | Filtri pagina principale | 1 | 1.0 | Devono essere presenti dei filtri in base alla tipologia (richiesta, offerta), al prodotto (Famiglia di api, Nucleo di api o Api regine) e al distretto (Bellinzona, Blenio, Leventina, Locarno, Lugano, Mendrisio, Riviera, Vallemaggia) |
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
   | Req-011 | Chat tra acquirente e venditore | 1 | 1.0 | Se possibile dovrà essere presente una pagina, nella quale in base ai match si potrà parlare con l'acquirente o con il venditore del prodotto |
+
+  | **ID** | **Nome** | **Priorità** | **Versione** | **Note** |
+  |----|------------|--------|----|------|
   | Req-012 | Conferma di vendita | 1 | 1.0 | Durante il match acquirenti e venditori possono confermare lo scambio tramite due bottoni di conferma. Se entrambi confermano lo scambio l'inserzione viene rimossa automaticamente |
   
 **Spiegazione elementi tabella dei requisiti:**
@@ -164,18 +194,8 @@ funzionalità del prodotto.
 
 ### Pianificazione
 
-Prima di stabilire una pianificazione bisogna avere almeno una vaga idea
-del modello di sviluppo che si intende adottare. In questa sezione
-bisognerà inserire il modello concettuale di sviluppo che si seguirà
-durante il progetto. Gli elementi di riferimento per una buona
-pianificazione derivano da una scomposizione top-down della problematica
-del progetto.
-
-La pianificazione può essere rappresentata mediante un diagramma di
-Gantt.
-
-Se si usano altri metodi di pianificazione (es scrum), dovranno apparire
-in questo capitolo.
+![GanttP1](Immagini/gantt1.png)
+![GanttP2](Immagini/gantt2.png)
 
 ### Analisi dei mezzi
 
@@ -183,12 +203,40 @@ Elencare e *descrivere* i mezzi disponibili per la realizzazione del
 progetto. Ricordarsi di sempre descrivere nel dettaglio le versioni e il
 modello di riferimento.
 
+#### Mezzi a disposizione
+
+Apache: 2.4.51 (x64)<br>
+PHP: 7.4.24 (Thread-Safe)<br>
+MySQL (Community Server): 8.0.26 (x64)<br>
+NodeJs: 14.18.1<br>
+HMailServer: 5.6.7<br>
+
 SDK, librerie, tools utilizzati per la realizzazione del progetto e
 eventuali dipendenze.
+
+#### Librerie e tools utilizzati
+
+Npm: 6.14.15<br>
+Composer: 2.1.12<br>
+PHPMailer: 6.5.3<br>
+Ws: 8.3.0<br>
+MySQL: 2.18.1
 
 Su quale piattaforma dovrà essere eseguito il prodotto? Che hardware
 particolare è coinvolto nel progetto? Che particolarità e limitazioni
 presenta? Che hw sarà disponibile durante lo sviluppo?
+
+#### Hardware disponibile per il progetto 
+
+Sistema operativo: Windows 10 Pro<br>
+RAM: 4 GB<br>
+Archiviazione: 50 GB<br>
+Scheda di rete: Broadcom NetXtreme Gigabit Ethernet
+
+In particolare le limitazioni di questo hardware sono:
+ - Poca memoria RAM (Sistema abbastanza lento)
+ - Poco spazio di archiviazione disponibile
+ - Un solo core per il processore
 
 ## Progettazione
 
@@ -196,56 +244,6 @@ Questo capitolo descrive esaustivamente come deve essere realizzato il
 prodotto fin nei suoi dettagli. Una buona progettazione permette
 all’esecutore di evitare fraintendimenti e imprecisioni
 nell’implementazione del prodotto.
-
-![Index](Progettazione/index.png)
-
-### Pagina principale
-
-La pagina principale permette a chiunque di vedere le inserzioni pubblicate dagli utenti. Un ospite può registrarsi<br>
-per poter creare richieste, offerte guardare il suo profilo e può instaurare un dialogo con gli altri utenti del servizio.<br>
-Gli utenti possono comunicare per email oppure tramite la chat integrata nel sito dove si comunica circa la richiesta e l'offerta.<br>
-Per poter accedere alle pagine di aggiunta delle inserszioni, chat e il match l'utente deve eseguire il [login](#pagina-di-login) premendo l'icona rappresentante una persona.<br>
-Se l'utente non ha ancora un profilo può [iscriversi](#pagina-di-registrazione) premendo il pulsante iscriviti.<br>
-L'utente, nella pagina principale, può decidere di filtrare i risultati utilizzando due criteri:
-  - Tipi di prodotto: Famiglia di api, Nucleo di api e Api regine
-  - Distretti: Locarnese, Bellinzonese, Blenio, Leventina, Riviera, Vallemaggia, Luganese e Mendrisiotto
-
-![Registrazione](Progettazione/registrazione.png)
-
-### Pagina di registrazione
-
-La pagina di registrazione permette all'utente di creare un nuovo profilo.<br>
-Tutti i campi compilabili sono obbligatori e se non vengono riempiti compare il mesaggio "Compilare tutti i campi per continuare".<br>
-La password è complessa e se la password non soddisfa i requisiti minimi compare il messaggio "La password non soddisfa i requisiti minimi di sicurezza".<br>
-Se la password inserita non corrisponde alla password di verifica compare il messaggio "La due password non corrispondono".
-
-![Login](Progettazione/login.png)
-
-### Pagina di login
-
-La pagina di login permette all'utente di collegarsi con il suo profilo utente.<br> 
-Se l'utente inserisce il nome utente oppure la password non sbagliate viene mostrato il messaggio "Nome utente o password non corretti". 
-
-![Profilo](Progettazione/profilo.png)
-
-### Pagina di profilo
-
-Nella pagina di profilo l'utente può visualizzare le sue informazioni personali,<br>
-può cambiare il suo indirizzo E-Mail e può vedere le sue inserzioni per eliminarle.
-
-![Match](Progettazione/match.png)
-
-### Pagina di match
-
-La pagina di match permette ad un utente registrato di vedere le **possibili** combinazioni tra la loro richiesta e le offerte disponibili con il servizio.<br>
-Un utente può decidere se accettare o rifiutare un'offerta / richiesta. Se il match viene confermata all'interno nella sezione [chat](#pagina-della-chat) del sito.
-
-![Chat](Progettazione/chat.png)
-
-### Pagina della chat
-
-La pagina della chat permette ad acquirenti e venditori di aver un dialogo circa il prodotto in offerta o il prodotto ricercato.<br>
-Quando l'affare è concluso la chat viene eliminata in automatico.
 
 ### Design dell’architettura del sistema
 
@@ -266,6 +264,56 @@ Descrizione delle interfacce interne ed esterne del sistema e
 dell’interfaccia utente. La progettazione delle interfacce è basata
 sulle informazioni ricavate durante la fase di analisi e realizzata
 tramite mockups.
+
+![Index](Progettazione/index.png)
+
+#### Pagina principale
+
+La pagina principale permette a chiunque di vedere le inserzioni pubblicate dagli utenti. Un ospite può registrarsi<br>
+per poter creare richieste, offerte guardare il suo profilo e può instaurare un dialogo con gli altri utenti del servizio.<br>
+Gli utenti possono comunicare per email oppure tramite la chat integrata nel sito dove si comunica circa la richiesta e l'offerta.<br>
+Per poter accedere alle pagine di aggiunta delle inserszioni, chat e il match l'utente deve eseguire il [login](#pagina-di-login) premendo l'icona rappresentante una persona.<br>
+Se l'utente non ha ancora un profilo può [iscriversi](#pagina-di-registrazione) premendo il pulsante iscriviti.<br>
+L'utente, nella pagina principale, può decidere di filtrare i risultati utilizzando due criteri:
+  - Tipi di prodotto: Famiglia di api, Nucleo di api e Api regine
+  - Distretti: Locarnese, Bellinzonese, Blenio, Leventina, Riviera, Vallemaggia, Luganese e Mendrisiotto
+
+![Registrazione](Progettazione/registrazione.png)
+
+#### Pagina di registrazione
+
+La pagina di registrazione permette all'utente di creare un nuovo profilo.<br>
+Tutti i campi compilabili sono obbligatori e se non vengono riempiti compare il mesaggio "Compilare tutti i campi per continuare".<br>
+La password è complessa e se la password non soddisfa i requisiti minimi compare il messaggio "La password non soddisfa i requisiti minimi di sicurezza".<br>
+Se la password inserita non corrisponde alla password di verifica compare il messaggio "La due password non corrispondono".
+
+![Login](Progettazione/login.png)
+
+#### Pagina di login
+
+La pagina di login permette all'utente di collegarsi con il suo profilo utente.<br> 
+Se l'utente inserisce il nome utente oppure la password non sbagliate viene mostrato il messaggio "Nome utente o password non corretti". 
+
+![Profilo](Progettazione/profilo.png)
+
+#### Pagina di profilo
+
+Nella pagina di profilo l'utente può visualizzare le sue informazioni personali,<br>
+può cambiare il suo indirizzo E-Mail e può vedere le sue inserzioni per eliminarle.
+
+![Match](Progettazione/match.png)
+
+#### Pagina di match
+
+La pagina di match permette ad un utente registrato di vedere le **possibili** combinazioni tra la loro richiesta e le offerte disponibili con il servizio.<br>
+Un utente può decidere se accettare o rifiutare un'offerta / richiesta. Se il match viene confermata all'interno nella sezione [chat](#pagina-della-chat) del sito.
+
+![Chat](Progettazione/chat.png)
+
+#### Pagina della chat
+
+La pagina della chat permette ad acquirenti e venditori di aver un dialogo circa il prodotto in offerta o il prodotto ricercato.<br>
+Quando l'affare è concluso la chat viene eliminata in automatico.
 
 ### Design procedurale
 
@@ -356,11 +404,20 @@ stato una perdita di tempo? I risultati ottenuti sono generali,
 facilmente generalizzabili o sono specifici di un caso particolare? ecc
 
 ### Sviluppi futuri
-  Migliorie o estensioni che possono essere sviluppate sul prodotto.
+
+Migliorie o estensioni che possono essere sviluppate sul prodotto.
 
 ### Considerazioni personali
-  Cosa ho imparato in questo progetto? ecc
 
+Questo progetto mi ha aiutato molto a crescere come persona ma soprattutto come persona che tra qualche anno<br>
+si affaccerà al mondo del lavoro. Durante lo svolgimento del progetto ho imparato a capire quali sono<br>
+i miei punti di forza ma soprattutto quali sono le mie limitazioni, quest'ultime avvolte sono state difficili<br>
+da sormontare ma con l'esperienza queste limitazioni vanno a diminuire sempre di più. Con questo progetto ho
+imparato a capire come gestire le tempistiche del mio progetto senza andare a sforare. Inizialmente non avevo<br>
+alcun'idea di come si sarebbe sviluppato il mio programma, infatti come si può notare dal ["gantt preventivo"](#Pianificazione) le<br>
+tempistiche che avevo pronosticato erano completamente irrealistiche. Sviluppare un e-commerce di api mi ha<br> 
+insegnato a lavorare con dei linguaggi di programmazione che fino a qual momento mi erano sconosciuti,<br> 
+come per esempio NodeJS con i suoi installabili quali WebSocket e MySQL.
 ## Bibliografia
 
 ### Bibliografia per articoli di riviste
@@ -374,22 +431,6 @@ facilmente generalizzabili o sono specifici di un caso particolare? ecc
 4.  Anno e numero
 
 5.  Pagina iniziale dell’articolo,
-
-### Bibliografia per libri
-
-
-1.  Cognome e nome (o iniziali) dell’autore o degli autori, o nome
-    dell’organizzazione,
-
-2.  Titolo del libro (in italico),
-
-3.  ev. Numero di edizione,
-
-4.  Nome dell’editore,
-
-5.  Anno di pubblicazione,
-
-6.  ISBN.
 
 ### Sitografia
 
