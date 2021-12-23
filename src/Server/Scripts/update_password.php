@@ -1,4 +1,8 @@
 <?php
+    /**
+     * This script is used to update the password.
+     * The password must be different and meet the password minimum security standard.
+     */
     require "server_config.php";
     session_start();
 

@@ -1,6 +1,7 @@
 <?php
     require "./Server/Scripts/server_config.php";
     require "./Models/insertion.php";
+    
     session_start();
 ?>
 <!DOCTYPE html>
@@ -12,47 +13,12 @@
         <title>Accordi | E-Commerce Api</title>
         <link rel="stylesheet" href="./Styles/header.css">
         <link rel="stylesheet" href="./Styles/insertion.css">
-        <style>
-            * {
-                box-sizing: border-box;
-                margin: 0;
-            }
-
-            main {
-                margin-top: 10vh;
-            }
-
-            .match-request {
-                display: flex;
-                width: 50%;
-                height: 15vh;
-            }
-
-            .offer-container {
-                flex: 2;
-                height: 20vh;
-            }
-
-            .confirm-reject {
-                flex: 1;
-                margin-top: 3vh;
-            }
-
-            .confirm-reject button {
-                width: 70%;
-                height: 8vh;
-                margin-left: 3vh;
-                margin-bottom: 3vh;
-                margin-top: 0.5vh;
-                border-radius: 10px;
-                border: 1px solid black;
-            }
-        </style>
+        <link rel="stylesheet" href="./Styles/match.css">
     </head>
     <body>
         <?php require "./Models/header.php"?>
         <main>
-            <h1>Match</h1>
+            <h1>Possibili accordi</h1>
             <?php
                 $get_requests_query = "SELECT * FROM richiesta WHERE utente_id=" . $_SESSION['id'];
                 $user_requests = $conn->query($get_requests_query);
@@ -61,10 +27,9 @@
                     echo "<h2>La tua richiesta: " . $req["nome"] . "</h2>";
                     
                     $get_offers_query = "SELECT * 
-                                         FROM vendita, richiesta_vendita
+                                         FROM vendita
                                          WHERE prodotto_id=" . $req["prodotto_id"] . "
-                                         AND distretto_id=" . $req["distretto_id"]. "
-                                         AND vendita.id <> richiesta_vendita.vendita_id";
+                                         AND distretto_id=" . $req["distretto_id"];
 
                     $users_offers = $conn->query($get_offers_query);
 
@@ -72,9 +37,10 @@
                         echo "<div class='match-request'>";
 
                         createInsertion($off["prodotto_id"], 
-                                        $off["distretto_id"], 
+                                        $off["distretto_id"],
+                                        "", 
                                         $off["immagine"],
-                                        $off["nome"], 
+                                        $off["nome"],
                                         $off["descrizione"]
                         );
 
@@ -83,7 +49,99 @@
                               <br><button name='reject'>RIFIUTA</button>
                               <input type='number' value='" . $req["id"] . "' name='req_id'>
                               <input type='number' value='" . $off["id"] . "' name='off_id'>
+                              <input type='number' value='" . $req["utente_id"] . "' name='req_usr_id'>
+                              <input type='number' value='" . $off["utente_id"] . "' name='off_usr_id'>
                               </form></div>";
+                    }
+                }
+            ?>
+            <h1>Contrattazioni in atto</h1>
+            <?php 
+                // Fetch all negotiations
+                $get_current_match = "SELECT * 
+                                      FROM richiesta_vendita 
+                                      WHERE venditore_id=" . $_SESSION["id"] . "
+                                      OR acquirente_id=" . $_SESSION["id"];
+                
+                $match = $conn->query($get_current_match);
+
+                while ($row = $match->fetch_assoc()) {
+                    if ($row["acquirente_id"] == $_SESSION["id"]) {
+                        $offer_query = "SELECT * 
+                                        FROM vendita 
+                                        WHERE id=" . $row["vendita_id"];
+
+                        $offer = $conn->query($offer_query);
+                        $offer = $offer->fetch_assoc();
+
+                        createInsertion($offer["prodotto_id"], 
+                                        $offer["distretto_id"],
+                                        "", 
+                                        $offer["immagine"],
+                                        $offer["nome"],
+                                        $offer["descrizione"]
+                        );
+
+                        echo "<h4>Concluso venditore</h4>";
+
+                        // https://www.php.net/manual/en/function.intval.php
+                        // Convert string to int and check if concluso_venditore is 0
+                        if (intval($row["concluso_venditore"]) == 0) {
+                            echo "<input type='checkbox' disabled>";
+                        } else {
+                            echo "<input type='checkbox' checked disabled>";
+                        }
+
+                        echo "<h4>Concluso acquirente</h4>";
+
+                        // https://www.php.net/manual/en/function.intval.php
+                        // Convert string to int and check if concluso_acquirente is 0
+                        if (intval($row["concluso_acquirente"]) == 0) {
+                            echo "<input type='checkbox' disabled>";
+                        } else {
+                            echo "<input type='checkbox' checked disabled>";
+                        }
+
+                        echo "<form class='close-deal' action='./Server/Scripts/close_deal.php' method='POST'>
+                              <button>Concludere trattativa</button>
+                              <input type='number' value='" . $row["id"] . "' name='buyer' id='buyer'></form>";
+                    } else {
+                        $request_query = "SELECT * 
+                                          FROM vendita 
+                                          WHERE id=" . $row["richiesta_id"];
+
+                        $request = $conn->query($request_query);
+                        $request = $request->fetch_assoc();
+
+                        createInsertion($request["prodotto_id"], 
+                                        $request["distretto_id"],
+                                        "", 
+                                        $request["immagine"],
+                                        $request["nome"],
+                                        $request["descrizione"]
+                        );
+
+                        echo "<h4>Concluso venditore</h4>";
+
+                        // https://www.php.net/manual/en/function.intval.php
+                        if (intval($row["concluso_venditore"]) == 0) {
+                            echo "<input type='checkbox' readonly>";
+                        } else {
+                            echo "<input type='checkbox' checked readonly>";
+                        }
+
+                        echo "<h4>Concluso acquirente</h4>";
+
+                        // https://www.php.net/manual/en/function.intval.php
+                        if (intval($row["concluso_acquirente"]) == 0) {
+                            echo "<input type='checkbox' readonly>";
+                        } else {
+                            echo "<input type='checkbox' checked readonly>";
+                        }
+
+                        echo "<form 'close-deal' action='./Server/Scripts/close_deal.php' method='POST'>
+                              <button>Concludere trattativa</button>
+                              <input type='number' value='" . $row["id"] . "' name='seller' id='seller'></form>";
                     }
                 }
             ?>

@@ -1,23 +1,23 @@
 .user-container {
-    width: 60%;
-    height: 15vh;
-    border: 1px solid black;
+    width: 17%;
+    height: 12vh;
+    border: 3px solid red;
+    background-color: lightpink;
     margin-top: 3vh;
+    margin-left: 4%;
+    margin-right: 4%;
     display: flex;
     border-radius: 15px;
 }
 
-.user-image-container {
-    flex: 1;
-    margin-top: 1vh;
-    margin-left: 1vh;
-}
-
-.name-container {
-    flex: 3;
-    margin-top: 1vh;
-}
-
-.name-container p {
-    margin-top: 10px;
+.user-container input {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 22px;
+    text-align: center;
+    height: 6vh;
+    margin-top: 3vh;
+    background: none;
+    border: 0;
 }

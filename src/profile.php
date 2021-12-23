@@ -16,37 +16,7 @@
                 <title>Profilo | E-Commerce Api</title>
                 <link rel="stylesheet" href="./Styles/header.css">
                 <link rel="stylesheet" href="./Styles/insertion.css">
-                <style>
-                    * {
-                        box-sizing: border-box;
-                        margin: 0;
-                    }
-
-                    main {
-                        margin: 10vh;
-                    }
-
-                    #personal-info p {
-                        display: inline-block;
-                        margin-top: 1vh;
-                        margin-bottom: 1vh;
-                    }
-
-                    hr {
-                        color: lightgray;
-                        margin-top: 6vh;
-                        margin-bottom: 6vh;
-                    }
-
-                    input {
-                        margin-left: 1vh;
-                        margin-right: 4vh;
-                    }
-
-                    h2, h3 {
-                        margin-bottom: 2vh;
-                    }
-                </style>
+                <link rel="stylesheet" href="./Styles/profile.css">
             </head>
             <body>
                 <?php require "./Models/header.php"?>
@@ -56,17 +26,23 @@
                     <hr>
                     <h2>Informazioni personali</h2>
                     <div id="personal-info">
-                        <p><b>Nome</b></p>
-                        <p>Samuel</p>
-                        <br>
-                        <p><b>Cognome</b></p>
-                        <p>Banfi</p>
-                        <br>
-                        <p><b>Nome utente</b></p>
-                        <p>bansam</p>
-                        <br>
-                        <p><b>E-Mail</b></p>
-                        <p>banfisamuel03@gmail.com</p>
+                        <?php
+                            // Print all user informations.
+                            $user = $conn->query("SELECT * FROM utente WHERE id=$id");
+                            $user = $user->fetch_assoc();
+                            
+                            echo "<p><b>Nome</b></p>";
+                            echo "<p>" . $user["nome"] . "</p>";
+                            echo "<br>";
+                            echo "<p><b>Cognome</b></p>";
+                            echo "<p>" . $user["cognome"] . "</p>";
+                            echo "<br>";
+                            echo "<p><b>Nome utente</b></p>";
+                            echo "<p>" . $user["nome_utente"] . "</p>";
+                            echo "<br>";
+                            echo "<p><b>E-Mail</b></p>";
+                            echo "<p>" . $user["email"] . "</p>";
+                        ?>
                     </div>
                     <hr>
                     <h2>Modifica E-Mail</h2>
@@ -90,12 +66,18 @@
                     <h2>Le tue inserzioni</h2>
                     <h3>Inserzioni - offerte</h3>
                     <?php
+                        /**
+                         * Search the offers of the current user.
+                         * In this section the user could remove his insertion.
+                         */ 
                         $get_offers_query = "SELECT vendita.nome AS vnome, vendita.id AS vid,
                                                 vendita.descrizione, vendita.immagine, utente.nome AS unome
                                                 FROM vendita JOIN utente
                                                 ON vendita.utente_id = utente.id
                                                 AND utente.id = $id";
+
                         $result = $conn->query($get_offers_query);
+
                         while ($row = $result->fetch_assoc()) {
                             echo "<form action='./Server/Scripts/remove_db_offer.php' method='POST'>";
                             echo "<div class='offer-container'>";
@@ -111,12 +93,18 @@
                     ?>
                     <h3>Inserzioni - richieste</h3>
                     <?php
+                        /**
+                         * Search the requests of the current user.
+                         * In this section the user could remove his insertion.
+                         */ 
                         $get_requests_query = "SELECT richiesta.nome AS rnome, richiesta.id AS rid, 
                                             richiesta.descrizione, richiesta.immagine, utente.nome AS unome
                                             FROM richiesta JOIN utente
                                             ON richiesta.utente_id = utente.id
                                             AND utente.id = $id";
+
                         $result = $conn->query($get_requests_query);
+
                         while ($row = $result->fetch_assoc()) {
                             echo "<form action='./Server/Scripts/remove_db_request.php' method='POST'>";
                             echo "<div class='offer-container'>";

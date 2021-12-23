@@ -1,4 +1,8 @@
 <?php
+    /**
+     * This script is used to update the email.
+     * The email must be different and meet the password standard.
+     */
     require "server_config.php";
     session_start();
 

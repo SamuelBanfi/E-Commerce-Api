@@ -1,0 +1,42 @@
+body {
+    background-image: url("./Images/Bees/pink_flower.jpg");
+}
+
+form {
+    width: 50%;
+    height: 70vh;
+    margin-left: 25%;
+    margin-right: 25%;
+    border-radius: 15px;
+    bottom: 7vh;
+    padding: 4vh;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#content {
+    margin-left: 10vh;
+}
+
+input[type="text"], #product, #district, #type {
+    width: 30vh;
+    height: 4vh;
+    border-radius: 15px;
+}
+
+form #image {
+    width: 25vh;
+    height: 5vh;
+    border: 2px solid black;
+    padding: 2vh;
+}
+
+h3 {
+    margin-bottom: 3vh;
+}
+
+#product-title, #district-title, #type-title {
+    display: inline-block;
+    margin-right: 10px;
+}

@@ -12,50 +12,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Crea Offerta | E-Commerce Api</title>
                 <link rel="stylesheet" href="./Styles/header.css">
-                <style>
-                    body {
-                        background-image: url("./Images/Bees/pink_flower.jpg");
-                    }
-
-                    form {
-                        width: 50%;
-                        height: 70vh;
-                        margin-left: 25%;
-                        margin-right: 25%;
-                        border-radius: 15px;
-                        bottom: 7vh;
-                        padding: 4vh;
-                        position: fixed;
-                        background-color: rgba(255, 255, 255, 0.9);
-                        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-                    }
-
-                    #content {
-                        margin-left: 10vh;
-                    }
-
-                    input[type="text"], #product, #district, #type {
-                        width: 30vh;
-                        height: 4vh;
-                        border-radius: 15px;
-                    }
-
-                    form #image {
-                        width: 25vh;
-                        height: 10vh;
-                        border: 2px solid black;
-                        padding: 1vh;
-                    }
-
-                    h3 {
-                        margin-bottom: 3vh;
-                    }
-
-                    #product-title, #district-title, #type-title {
-                        display: inline-block;
-                        margin-right: 10px;
-                    }
-                </style>
+                <link rel="stylesheet" href="./Styles/offers.css">
             </head>
             <body>
                 <?php require "./Models/header.php"?>
@@ -76,6 +33,7 @@
                             <input list="products" name="product" id="product" required>
                             <datalist id="products">
                                 <?php
+                                    // Fetch all products to produce dropdown options.
                                     $products_query = "SELECT id, nome
                                                         FROM prodotto";
                                     
@@ -91,6 +49,7 @@
                             <input list="districts" name="district" id="district" required>
                             <datalist id="districts">
                                 <?php
+                                    // Fetch all districts to produce dropdown options.
                                     $districts_query = "SELECT id, nome
                                                         FROM distretto";
                                     

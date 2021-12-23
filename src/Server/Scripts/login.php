@@ -1,9 +1,14 @@
 <?php
+    /**
+     * This class is used to set session variables when the user 
+     * inserted the correct username and password.
+     */
     require "server_config.php";
 
     $username = $_POST["username"];
+    $password = $_POST["password"];
 
-    $login_query = "SELECT id, nome, nome_utente 
+    $login_query = "SELECT id, nome, nome_utente, codice 
                     FROM utente
                     WHERE nome_utente = '$username'";
 
@@ -12,8 +17,11 @@
     if ($result->num_rows == 1) {
         $row = $result->fetch_array();
 
-        $password = password_hash($_POST["password"], $row["codice"]);
-        $passwordCheck = password_verify($_POST["password"], $password);
+        /** 
+         * This function check if the hash of the password on 
+         * database match the inserted password.
+         */
+        $passwordCheck = password_verify($password, $row["codice"]);
 
         if ($passwordCheck) {
             $first_letter = substr(lcfirst($row["nome"]), 0, 1);
@@ -25,9 +33,9 @@
             $_SESSION["image"] = "./Images/Letters/$first_letter.png";
             header("location: ../../index.php");
         } else {
-            require "../../Models/login_model.php";
+            header("location:../../signin.html");
         }
     } else {
-        require "../../Models/login_model.php";
+        header("location:../../signin.html");
     }
 ?>

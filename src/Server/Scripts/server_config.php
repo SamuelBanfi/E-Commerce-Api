@@ -1,7 +1,7 @@
 <?php
     $server = "localhost";
-    $username = "root";
-    $password = "Password&1";
+    $username = "beecommerce";
+    $password = "Beecommerce2021!";
     $db = "vendita_api";
 
     // Create connection

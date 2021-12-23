@@ -33,9 +33,15 @@ CREATE TABLE vendita
     utente_id INT NOT NULL,
     prodotto_id INT NOT NULL,
     distretto_id INT NOT NULL,
-    FOREIGN KEY(utente_id) REFERENCES utente(id),
-    FOREIGN KEY(prodotto_id) REFERENCES prodotto(id),
+    FOREIGN KEY(utente_id) REFERENCES utente(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY(prodotto_id) REFERENCES prodotto(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     FOREIGN KEY(distretto_id) REFERENCES distretto(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE richiesta
@@ -47,9 +53,15 @@ CREATE TABLE richiesta
     utente_id INT,
     prodotto_id INT,
     distretto_id INT,
-    FOREIGN KEY(utente_id) REFERENCES utente(id),
-    FOREIGN KEY(prodotto_id) REFERENCES prodotto(id),
+    FOREIGN KEY(utente_id) REFERENCES utente(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY(prodotto_id) REFERENCES prodotto(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     FOREIGN KEY(distretto_id) REFERENCES distretto(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE richiesta_vendita
@@ -58,8 +70,36 @@ CREATE TABLE richiesta_vendita
     data_contratto DATE,
     vendita_id INT,
     richiesta_id INT,
-    FOREIGN KEY(vendita_id) REFERENCES vendita(id),
+    venditore_id INT,
+    acquirente_id INT,
+    concluso_venditore TINYINT(1) DEFAULT 0,
+    concluso_acquirente TINYINT(1) DEFAULT 0,
+    FOREIGN KEY(vendita_id) REFERENCES vendita(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
     FOREIGN KEY(richiesta_id) REFERENCES richiesta(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY(venditore_id) REFERENCES utente(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY(acquirente_id) REFERENCES utente(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+);
+
+CREATE TABLE messaggi
+(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    committente_id INT,
+    destinatario_id INT,
+    messaggio TEXT,
+    FOREIGN KEY(committente_id) REFERENCES utente(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY(destinatario_id) REFERENCES utente(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
 );
 
 INSERT INTO prodotto(nome) VALUES("Famiglia di api");
@@ -74,3 +114,7 @@ INSERT INTO distretto(nome) VALUES("Bellinzona");
 INSERT INTO distretto(nome) VALUES("Riviera");
 INSERT INTO distretto(nome) VALUES("Blenio");
 INSERT INTO distretto(nome) VALUES("Leventina");
+
+DROP USER IF EXISTS beecommerce;
+CREATE USER beecommerce IDENTIFIED BY "Beecommerce2021!";
+GRANT SELECT, INSERT, UPDATE, DELETE ON vendita_api.* TO beecommerce;

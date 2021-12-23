@@ -11,5 +11,10 @@
     "ecommerce"
   ],
   "author": "Samuel Banfi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mysql": "^2.18.1",
+    "trianglify": "^4.1.1",
+    "ws": "^8.3.0"
+  }
 }

@@ -6,10 +6,11 @@
 .offer-container {
     width: 60%;
     height: 15vh;
-    border: 1px solid black;
     margin-top: 3vh;
     display: flex;
     border-radius: 15px;
+    background: rgb(243, 243, 243);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .image-container {

@@ -1,3 +1,6 @@
+<?php
+    // This the header template
+?>
 <header>
     <div class="logo-container">
         
